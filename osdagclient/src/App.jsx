@@ -27,6 +27,7 @@ import jwt_decode from 'jwt-decode';
 import EndPlate from './components/shearConnection/EndPlate';
 import CleatAngle from './components/shearConnection/CleatAngle';
 import SeatedAngle from './components/shearConnection/SeatedAngle';
+import CoverPlateBolted from './components/momentConnection/beamToBeamSplice/coverPlateBolted/CoverPlateBolted';
 
 let renderedOnce = false
 
@@ -74,6 +75,12 @@ function App() {
           path='/design/:designType/seated_angle'
           element={
             <SeatedAngle/>
+          }
+        />
+        <Route
+          path='/design/:designType/cover_plate_bolted'
+          element={
+            <CoverPlateBolted/>
           }
         />
       <Route path='/user' element={<UserAccount />} />
