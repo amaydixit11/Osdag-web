@@ -152,13 +152,14 @@ const [selectedItemBack, setSelectedItemBack] = useState(null);
                                                 <input
                                                     type="radio"
                                                     value={item.name}
-                                                    name="shear-conn"
+                                                    name="tension-member"
                                                     onClick={() => {
                                                     setSelectedDesign(item.name.toLowerCase());
                                                     setSelectedItemBack(item.name);
                                                     }}
                                                 />
                                                 <b>{item.name.replaceAll("_", " ")}</b><br />
+                                                
                                                 <img
                                                     src={image_map[item.image_name]}
                                                     alt={item.name}
@@ -181,7 +182,11 @@ const [selectedItemBack, setSelectedItemBack] = useState(null);
                                 })}
 
                             </div>
-                            <center><div className=''><button className='start-btn' onClick={() => { }}>Start</button></div></center>
+                            <center><div className=''><button className='start-btn' onClick={() => {
+                                if (selectedDesign === 'bolted_to_end_gusset' || selectedDesign === 'welded_to_end_gusset') {
+                                    navigate(`/design/${designType}/${selectedDesign}`);
+                                }                                                                  
+                            }}>Start</button></div></center>
                         </>
                     }
                     {subDesignTypes && !subDesignTypes.has_subtypes &&

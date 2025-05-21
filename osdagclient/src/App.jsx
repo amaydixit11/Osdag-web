@@ -27,6 +27,7 @@ import jwt_decode from 'jwt-decode';
 import EndPlate from './components/shearConnection/EndPlate';
 import CleatAngle from './components/shearConnection/CleatAngle';
 import SeatedAngle from './components/shearConnection/SeatedAngle';
+import WeldedToEndGusset from './components/tensionMember/Welded/WeldedToEndGusset';
 
 let renderedOnce = false
 
@@ -74,6 +75,18 @@ function App() {
           path='/design/:designType/seated_angle'
           element={
             <SeatedAngle/>
+          }
+        />
+        <Route
+          path='/design/:designType/bolted_to_end_gusset'
+          element={
+            <SeatedAngle/>
+          }
+        />
+        <Route
+          path='/design/:designType/welded_to_end_gusset'
+          element={
+            <WeldedToEndGusset/>
           }
         />
       <Route path='/user' element={<UserAccount />} />

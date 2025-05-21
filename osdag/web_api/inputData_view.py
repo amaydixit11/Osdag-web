@@ -15,8 +15,8 @@ from .inputdata.seated_angle_input import SeatedAngleInputData
 INPUT_DATA_FACTORY = {
     'Fin-Plate-Connection': FinPlateInputData(),
     'Cleat-Angle-Connection': CleatAngleInputData(),
-    'End-Plate-Connection':EndPlateInputData(),
-    'Seated-Angle-Connection':SeatedAngleInputData(),
+    'End-Plate-Connection': EndPlateInputData(),
+    'Seated-Angle-Connection': SeatedAngleInputData(),
 }
 
 
@@ -88,7 +88,7 @@ class InputData(APIView):
         # if not Design.objects.filter(cookie_id=cookie_id).exists(): # Error Checking: If design session exists.
             # print('The design session does not exists')
             # return Response("Error: This design session does not exist", status = status.HTTP_404_NOT_FOUND) # Return error response.
-
+        # 
         if (not (moduleName in INPUT_DATA_FACTORY)):
             return Response({"error": "Bad Query Parameter"}, status=status.HTTP_400_BAD_REQUEST)        
         print("///////////////////////////////////////// ", email)
