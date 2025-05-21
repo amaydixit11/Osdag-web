@@ -16,6 +16,7 @@ from . import views
 from osdag.web_api.endplate_outputView import EndPLateOutputData
 from osdag.web_api.cleatangle_outputView import CleatAngleOutputData
 from osdag.web_api.seatedangle_outputView import SeatedAngleOutputData
+from osdag.web_api.tension_welded_outputView import TensionWeldedOutputData
 # temporary
 app_name = 'osdag-web/'
 
@@ -90,6 +91,8 @@ urlpatterns = [
          CleatAngleOutputData.as_view(),name="Cleat-Angle-Connection"),
     
     path('calculate-output/Seated-Angle-Connection',
-         SeatedAngleOutputData.as_view(),name="Seated-Angle-Connection")
-
+         SeatedAngleOutputData.as_view(),name="Seated-Angle-Connection"),
+    
+    path('calculate-output/Tension-Member-Welded-Connection',
+     TensionWeldedOutputData.as_view(), name="Tension-Member-Welded-Connection")
 ]
