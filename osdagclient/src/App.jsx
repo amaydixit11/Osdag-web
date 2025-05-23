@@ -22,14 +22,6 @@ import { useSelector } from "react-redux";
 // New component for the login page
 import LoginPage from "./components/userAuth/LoginPage";
 
-<<<<<<< HEAD
-// jwt imports 
-import jwt_decode from 'jwt-decode';
-import EndPlate from './components/shearConnection/EndPlate';
-import CleatAngle from './components/shearConnection/CleatAngle';
-import SeatedAngle from './components/shearConnection/SeatedAngle';
-import CoverPlateBolted from './components/momentConnection/beamToBeamSplice/coverPlateBolted/CoverPlateBolted';
-=======
 // jwt imports
 import jwt_decode from "jwt-decode";
 import EndPlate from "./components/shearConnection/EndPlate";
@@ -37,7 +29,7 @@ import CleatAngle from "./components/shearConnection/CleatAngle";
 import SeatedAngle from "./components/shearConnection/SeatedAngle";
 import CoverPlateBolted from "./components/momentConnection/beamToBeamSplice/CoverPlateBolted";
 import BeamBeamEndPlate from "./components/momentConnection/beamToBeamSplice/BeamBeamEndPlate";
->>>>>>> winter24-ff
+import WeldedToEndGusset from "./components/tensionMember/WeldedToEndGusset";
 
 let renderedOnce = false;
 
@@ -80,17 +72,11 @@ function App() {
           path="/design/:designType/beam-to-beam-splice/end_plate"
           element={<BeamBeamEndPlate />}
         />
-<<<<<<< HEAD
         <Route
-          path='/design/:designType/cover_plate_bolted'
-          element={
-            <CoverPlateBolted/>
-          }
+          path="/design/tension-member/welded_to_end_gusset"
+          element={<WeldedToEndGusset />}
         />
-      <Route path='/user' element={<UserAccount />} />
-=======
         <Route path="/user" element={<UserAccount />} />
->>>>>>> winter24-ff
       </Route>
     )
   );

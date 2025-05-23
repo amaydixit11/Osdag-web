@@ -2,10 +2,6 @@ from osdag_api.modules import beam_beam_end_plate_connection, fin_plate_connecti
 from types import ModuleType
 import typing
 from typing import Dict, Any, List
-<<<<<<< HEAD
-
-=======
->>>>>>> winter24-ff
 from typing_extensions import Protocol as _Protocol
 class ModuleApiType(_Protocol):
 

@@ -103,212 +103,6 @@ const Window = () => {
 
   if (!results) return <div>Module Under Development</div>;
 
-<<<<<<< HEAD
-    }, [subActiveTab])
-
-    useEffect(() => {
-        if (!results) return;
-        const { name } = results.data[activeTab - 1]
-        getSubDesignTypes(designType, name)
-    }, [activeTab])
-
-    if (!results) return <div>Module Under Development</div>
-
-
-    return (
-        <div>
-            <div className='container'>
-            <div className='bloc-tabs'>
-                {results && results.has_subtypes && results.data.map((item) => {
-                return (
-                    <button
-                    key={item.id}
-                    className={activeTab === item.id ? "tab-btn tabs active-tabs" : "tab-btn tabs"}
-                    onClick={() => {
-                        setActiveTab(item.id);// set the value of current active tab
-                        setSelectedItemBack(null); // Refresh the value of selectedItemBack
-                    }}
-                    >
-                    {item.name.replaceAll("_", " ")}
-                    </button>
-                );
-                })}
-            </div>
-            <div className='bloc-tabs'>
-                {subDesignTypes && subDesignTypes.has_subtypes && (
-                <>
-                    {subDesignTypes.data.map((item) => {
-                    return (
-                        <button
-                        key={item.id}
-                        className={subActiveTab === item.id ? "tab-btn tabs active-subtabs" : "tab-btn tabs"}
-                        onClick={() => {
-                            setSubActiveTab(item.id);// set the value of current active tab
-                            setSelectedItemBack(null); // Refresh the value of selectedItemBack
-                        }}
-                        >
-                        {item.name.replaceAll("_", " ")}
-                        </button>
-                    );
-                    })}
-                </>
-                )}
-            </div>
-                <div className='design-types-cont'>
-                    {results && !results.has_subtypes &&
-                        <>
-                        {/* Tension Member Items */}
-                            <div className='content-tabs'>
-                                {results.data.map((item) => {
-                                    return (
-                                        <div key={item.id}>
-                                            <div className='conn-grid-container'>
-                                            <div className={`conn-grid-item ${selectedItemBack === item.name ? 'selected' : ''}`}>
-                                                <input
-                                                    type="radio"
-                                                    value={item.name}
-                                                    name="shear-conn"
-                                                    onClick={() => {
-                                                    setSelectedDesign(item.name.toLowerCase());
-                                                    setSelectedItemBack(item.name);
-                                                    }}
-                                                />
-                                                <b>{item.name.replaceAll("_", " ")}</b><br />
-                                                <img
-                                                    src={image_map[item.image_name]}
-                                                    alt={item.name}
-                                                    onClick={() => {
-                                                    const radioInput = document.querySelector(
-                                                        `input[type="radio"][value="${item.name}"]`
-                                                    );
-                                                    if (radioInput) {
-                                                        radioInput.checked = true;
-                                                        setSelectedDesign(item.name.toLowerCase());
-                                                        setSelectedItemBack(item.name);
-                                                    }
-                                                    }}
-                                                />
-                                            </div>
-                                            </div>
-
-                                        </div>
-                                    )
-                                })}
-
-                            </div>
-                            <center><div className=''><button className='start-btn' onClick={() => { }}>Start</button></div></center>
-                        </>
-                    }
-                    {subDesignTypes && !subDesignTypes.has_subtypes &&
-                        <>
-                        {/* Share Connection base plate and truss connection items */}
-                            <div className='content-tabs'>
-                                {subDesignTypes.data.map((item) => {
-                                    return (
-                                        <div key={item.id}>
-                                            <div className='conn-grid-container'>
-
-                                            <div className={`conn-grid-item ${selectedItemBack === item.name ? 'selected' : ''}`}>
-                                                <input
-                                                    type="radio"
-                                                    value={item.name}
-                                                    name="shear-conn"
-                                                    onClick={() => {
-                                                    setSelectedDesign(item.name.toLowerCase());
-                                                    setSelectedItemBack(item.name);
-                                                    }}
-                                                />
-                                                <b>{item.name.replaceAll("_", " ")}</b><br />
-                                                <img
-                                                    src={image_map[item.image_name]}
-                                                    alt={item.name}
-                                                    onClick={() => {
-                                                    const radioInput = document.querySelector(
-                                                        `input[type="radio"][value="${item.name}"]`
-                                                    );
-                                                    if (radioInput) {
-                                                        radioInput.checked = true;
-                                                        setSelectedDesign(item.name.toLowerCase());
-                                                        setSelectedItemBack(item.name);
-                                                    }
-                                                    }}
-                                                />
-                                            </div>
-                                            </div>
-
-                                        </div>
-                                    )
-                                })}
-
-                            </div>
-                            <center><div className=''><button className='start-btn' onClick={() => {
-                                if (selectedDesign === 'fin_plate' || selectedDesign === 'end_plate' || selectedDesign === 'cleat_angle' || selectedDesign === 'seated_angle') {
-                                    navigate(`/design/${designType}/${selectedDesign}`);
-                                }                                                                  
-                            }}>Start</button></div></center>
-                        </>
-                    }
-                    {leafLevelDesignType && !leafLevelDesignType.has_subtypes &&
-                        <>
-                        {/* Moment Connection */}
-                            <div className='content-tabs'>
-                                {leafLevelDesignType.data.map((item) => {
-                                    return (
-                                        <div key={item.id}>
-                                            
-                                            <div className='conn-grid-container'>
-                                            <div className={`conn-grid-item ${selectedItemBack === item.name ? 'selected' : ''}`}>
-                                                <input
-                                                    type="radio"
-                                                    value={item.name}
-                                                    name="shear-conn"
-                                                    onClick={() => {
-                                                    setSelectedDesign(item.name.toLowerCase());
-                                                    setSelectedItemBack(item.name);
-                                                    }}
-                                                />
-                                                <b>{item.name.replaceAll("_", " ")}</b><br />
-                                                <img
-                                                    src={image_map[item.image_name]}
-                                                    alt={item.name}
-                                                    onClick={() => {
-                                                    const radioInput = document.querySelector(
-                                                        `input[type="radio"][value="${item.name}"]`
-                                                    );
-                                                    if (radioInput) {
-                                                        radioInput.checked = true;
-                                                        setSelectedDesign(item.name.toLowerCase());
-                                                        setSelectedItemBack(item.name);
-                                                    }
-                                                    }}
-                                                />
-                                            </div>
-                                            </div>
-
-                                        </div>
-                                    )
-                                })}
-
-                            </div>
-                            <center>
-                                <div className=''>
-                                    <button className='start-btn' onClick={() => {
-                                        if (selectedDesign === 'cover_plate_bolted' || 
-                                            selectedDesign === 'end_plate' || 
-                                            selectedDesign === 'cover_plate_welded') {
-                                            navigate(`/design/${designType}/${selectedDesign}`);
-                                        }  
-                                    }}>Start</button>
-                                </div>
-                            </center>
-                        </>
-                    }
-                </div>
-                <div className='error-cont'>
-                    {error_message && <div>{error_message}</div>}
-                </div>
-            </div>
-=======
   return (
     <>
       <div className="container">
@@ -333,7 +127,6 @@ const Window = () => {
                 </button>
               );
             })}
->>>>>>> winter24-ff
         </div>
         <div className="bloc-tabs">
           {subDesignTypes && subDesignTypes.has_subtypes && (
@@ -407,7 +200,17 @@ const Window = () => {
               </div>
               <center>
                 <div className="">
-                  <button className="start-btn" onClick={() => {}}>
+                  <button
+                    className="start-btn"
+                    onClick={() => {
+                      if (
+                        selectedDesign === "bolted_to_end_gusset" ||
+                        selectedDesign === "welded_to_end_gusset"
+                      ) {
+                        navigate(`/design/${designType}/${selectedDesign}`);
+                      }
+                    }}
+                  >
                     Start
                   </button>
                 </div>
