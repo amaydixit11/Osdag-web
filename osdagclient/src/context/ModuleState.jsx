@@ -372,7 +372,10 @@ export const ModuleProvider = ({ children }) => {
           getBeamMaterialList("Cover-Plate-Bolted-Connection");
         } else if (module_id == "Beam Beam End Plate Connection") {
           getBeamMaterialList("Beam-Beam-End-Plate-Connection");
+        } else if (module_id == "Tension Member Welded To End Gusset") {
+          getBeamMaterialList("Tension-Member-Welded-To-End-Gusset");
         }
+        
 
         getBoltDiameterList();
         getThicknessList();

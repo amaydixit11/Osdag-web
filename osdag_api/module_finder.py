@@ -1,4 +1,4 @@
-from osdag_api.modules import beam_beam_end_plate_connection, fin_plate_connection,end_plate_connection,cleat_angle_connection,seated_angle_connection,cover_plate_bolted_connection
+from osdag_api.modules import beam_beam_end_plate_connection, fin_plate_connection,end_plate_connection,cleat_angle_connection,seated_angle_connection,cover_plate_bolted_connection, tension_member_welded
 from types import ModuleType
 import typing
 from typing import Dict, Any, List
@@ -38,6 +38,7 @@ module_dict : Dict[str, ModuleApiType] = {
     'Seated Angle Connection': seated_angle_connection,
     'Cover Plate Bolted Connection': cover_plate_bolted_connection,
     'Beam Beam End Plate Connection': beam_beam_end_plate_connection,
+    'Tension Member Welded': tension_member_welded,
 } 
 
 def get_module_api(module_id: str) -> ModuleApiType:

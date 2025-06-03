@@ -19,6 +19,7 @@ from osdag.web_api.cleatangle_outputView import CleatAngleOutputData
 from osdag.web_api.seatedangle_outputView import SeatedAngleOutputData
 from osdag.web_api.coverplatebolted_outputView import CoverPlateBoltedOutputData
 from osdag.web_api.beambeamendplate_outputView import BeamBeamEndPlateOutputData
+from osdag.web_api.tensionmemberwelded_ouputview import TensionMemberWeldedOutputData
 # temporary
 app_name = 'osdag-web/'
 
@@ -100,5 +101,8 @@ urlpatterns = [
          CoverPlateBoltedOutputData.as_view(),name="Cover-Plate-Bolted-Connection"),
     
     path('calculate-output/Beam-Beam-End-Plate-Connection',
-         BeamBeamEndPlateOutputData.as_view(),name="Beam-Beam-End-Plate-Connection")
+         BeamBeamEndPlateOutputData.as_view(),name="Beam-Beam-End-Plate-Connection"),
+    
+    path('calculate-output/Tension-Member-Welded',
+         TensionMemberWeldedOutputData.as_view(),name="Beam-Beam-End-Plate-Connection")
 ]

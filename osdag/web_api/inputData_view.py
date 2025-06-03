@@ -13,6 +13,7 @@ from .inputdata.end_plate_input import EndPlateInputData
 from .inputdata.seated_angle_input import SeatedAngleInputData
 from .inputdata.cover_plate_bolted_input import CoverPlateBoltedInputData
 from .inputdata.beam_beam_end_plate_input import BeamBeamEndPlateInputData
+from .inputdata.tension_member_welded_input import TensionMemberWeldedInputData
 
 
 INPUT_DATA_FACTORY = {
@@ -22,6 +23,7 @@ INPUT_DATA_FACTORY = {
     'Seated-Angle-Connection': SeatedAngleInputData(),
     'Cover-Plate-Bolted-Connection': CoverPlateBoltedInputData(),
     'Beam-Beam-End-Plate-Connection': BeamBeamEndPlateInputData(),
+    'Tension-Member-Welded-To-End-Gusset': TensionMemberWeldedInputData(),
 }
 
 
@@ -95,6 +97,10 @@ class InputData(APIView):
         elif(moduleName=='Beam-Beam-End-Plate-Connection'):
             cookie_id = request.COOKIES.get('beam_beam_end_plate_connection_session')
             print('cookie id in beam beam bolted connection input data ', cookie_id)
+            
+        elif(moduleName=='Tension-Member-Welded-To-End-Gusset'):
+            cookie_id = request.COOKIES.get('tension_member_welded_to_end_gusset')
+            print('cookie id in tension member welded to end gusset input data ', cookie_id)
 
         if cookie_id == None or cookie_id == '': # Error Checking: If design session id provided.
             return Response("Error: Please open module", status=status.HTTP_400_BAD_REQUEST) # Returns error response.

@@ -82,6 +82,9 @@ class CreateSession(APIView):
         elif request.COOKIES.get("beam_beam_end_plate_connection_session") is not None:
             print("Beam Beam End Plate Connection is there ")
             return JsonResponse({"status": "set"}, status=200)
+        elif request.COOKIES.get("tension_member_welded_session") is not None:
+            print("Tension Member Welded To End Gusset is there ")
+            return JsonResponse({"status": "set"}, status=200)
         if module_id not in developed_modules:  # Error Checking: Does module api exist
             print("module_id not developed")
             return JsonResponse(
@@ -96,6 +99,7 @@ class CreateSession(APIView):
             "Seated Angle Connection": "seated_angle_connection",
             "Cover Plate Bolted Connection": "cover_plate_bolted_connection_session",
             "Beam Beam End Plate Connection": "beam_beam_end_plate_connection_session",
+            "Tension Member Welded": "tension_member_welded_session",
         }
 
         # Check for existing sessions
@@ -161,6 +165,7 @@ class DeleteSession(APIView):
             "Seated Angle Connection": "seated_angle_connection",
             "Cover Plate Bolted Connection": "cover_plate_bolted_connection_session",
             "Beam Beam End Plate Connection": "beam_beam_end_plate_connection_session",
+            "Tension Member Welded": "tension_member_welded_session",
         }
 
         if module_id not in cookie_keys:
