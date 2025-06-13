@@ -39,5 +39,11 @@ module_dict = [
         "image":"/static/images/modules/beam_beam_end_plate_connection.png",
         "name":"End Plate",
         "path":"Connection/Moment Connection/"
+    },
+    {
+        "key": "Tension Member Welded",
+        "image":"/static/images/modules/beam_beam_end_plate_connection.png",
+        "name":"Tension Member Welded",
+        "path":"Tension Member/tension_welded/"
     }
 ]
